@@ -22,9 +22,9 @@ module.exports = {
             )
             .then((response) => {
                 res.header('X-Total-Count',count['count(*)'])
-                return res.json({ response })
+                return res.json(response )
             }).catch((error) => {
-                return res.json({ error })
+                return res.json( error )
             })
 
           
@@ -40,7 +40,7 @@ module.exports = {
             description,
             value
         }).then((response) => {
-            return res.json({ response })
+            return res.json( response )
         }).catch((error) => {
             return res.json({ error: error.message })
         })
@@ -54,7 +54,7 @@ module.exports = {
             .select('ong_id')
             .where('id', id)
             .first()
-        console.log(incident)
+        // console.log(incident)
 
         if (incident.ong_id != ong_id) {
             return res.status(401).json({ error: "operação não permitida" })

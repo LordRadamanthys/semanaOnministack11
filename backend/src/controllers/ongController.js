@@ -14,18 +14,18 @@ module.exports = {
             city,
             uf
         }).then((response)=>{
-            return res.json({response})
+            return res.json(response)
         }).catch((erro)=>{
-            return res.json({erro})
+            return res.json(erro)
         })
        // console.log(data)
     },
 
     async list(req,res){
         await connection('ongs').select('*').then((response)=>{
-            return res.json({response})
+            return res.json(response)
         }).catch((erro)=>{
-            return res.json({erro})
+            return res.json(erro)
         })
     },
 }
