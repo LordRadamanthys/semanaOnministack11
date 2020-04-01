@@ -49,6 +49,9 @@ export default function Detail() {
                 <Text style={styles.incidentProprety} >CASO:</Text>
                 <Text style={styles.incidentValue} >{incident.title}</Text>
 
+                <Text style={styles.incidentProprety} >DESCRIÇÃO:</Text>
+                <Text style={styles.incidentValue} >{incident.description}</Text>
+
                 <Text style={styles.incidentProprety} >Valor:</Text>
                 <Text style={styles.incidentValue} >{formatCurrency(incident.value)}</Text>
             </View>
