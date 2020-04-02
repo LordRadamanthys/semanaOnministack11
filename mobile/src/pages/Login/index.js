@@ -1,11 +1,11 @@
 import React, { useEffect, useState, Link } from 'react'
-import { View, Image, Text, TouchableOpacity, TextInput, ImageBackground, Alert, ProgressBarAndroid } from 'react-native'
+import { View, Image, Text, TouchableOpacity, TextInput, ImageBackground, ProgressBarAndroid ,Dimensions} from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import styles from './styles'
 import LogoImg from '../../assets/logo.png'
 
 import ImageBack from '../../assets/heroes.png'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import api from '../../services/api'
 import { simpleAlert, actionsAlert } from '../../util/Alert'
 
@@ -22,12 +22,14 @@ export default function Login() {
     async function handleLogin() {
 
         if (!id) return simpleAlert('Aviso', 'O campo ID deve ser preenchido!')
+
         setKeyProgress(true)
+
         const response = await api.post('sessions', { id })
             .then((response) => {
-                Alert.alert(response.data.name)
-                console.log(response.data.name)
                 setKeyProgress(false)
+
+                navigation.navigate('Incidents', { name: response.data.name, id:id })
             }).catch((erro) => {
                 simpleAlert('Ops!', erro.response.data.erro)
                 setKeyProgress(false)
@@ -55,6 +57,7 @@ export default function Login() {
                     style={styles.input}
                     onChangeText={(ongID) => setOngID(ongID)}
                     value={id}
+                    
                     placeholder="Inisra seu ID"
                 />
 
@@ -65,14 +68,13 @@ export default function Login() {
                         <ProgressBarAndroid animating={keyProgress} styleAttr={'Small'} color="#fff" />
                     </TouchableOpacity>
                 </View>
-            </View>
-            
-            <TouchableOpacity onPress={() => { }} >
-                <View style={styles.contactBox}>
-                    <Text style={styles.creatText}><Feather name="user-plus" size={19} color="#e02041" /> Crie uma conta</Text>
-
+                <View style={styles.actions}>
+                    <TouchableOpacity onPress={createAccout} >
+                        <Text style={styles.creatText}><Feather name="user-plus" size={19} color="#e02041" /> Crie uma conta</Text>
+                    </TouchableOpacity>
                 </View>
-            </TouchableOpacity>
+            </View>
+
         </View>
 
 

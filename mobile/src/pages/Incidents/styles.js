@@ -33,11 +33,12 @@ export default StyleSheet.create({
     description: {
         fontSize: 16,
         lineHeight: 24,
-        color: "#737380"
+        color: "#737380",
+        marginBottom:15
     },
 
     incidentList: {
-        marginTop: 32,
+        marginTop: 15,
     },
 
     incident: {
@@ -70,7 +71,12 @@ export default StyleSheet.create({
         color:"#e02071",
         fontSize:15,
         fontWeight:"bold"
-    }
+    },
+    tabBackground: {
+        backgroundColor:"#e02041"
+      },
+
+     
 
     
 })

@@ -10,9 +10,9 @@ module.exports={
         .select('*')
         .where('ong_id',ong_id)
             .then((response) => {
-                return res.json({ response })
+                return res.json(response )
             }).catch((error) => {
-                return res.json({ error })
+                return res.json(error )
             })
     },
 }

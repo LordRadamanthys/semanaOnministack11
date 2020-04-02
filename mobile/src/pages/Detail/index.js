@@ -10,9 +10,10 @@ import {formatCurrency} from '../../util/formatTools'
 export default function Detail() {
     const route = useRoute()
     const navigation = useNavigation()
-
     const incident = route.params.incident
-    const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${formatCurrency(incident.value)}`
+    const name = !incident.name ? route.params.name : incident.name
+    const ongTitleValue = incident.name ? `${incident.name} de ${incident.city}/${incident.uf}` : name
+    const message = `Olá ${name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${formatCurrency(incident.value)}`
     function navigateBack() {
         // navigation.navigate('Incidents')
         navigation.goBack()
@@ -44,7 +45,7 @@ export default function Detail() {
 
             <View style={styles.incident}>
                 <Text style={[styles.incidentProprety, { marginTop: 0 }]} >ONG:</Text>
-                <Text style={styles.incidentValue} >{incident.name} de {incident.city}/{incident.uf}</Text>
+                <Text style={styles.incidentValue} >{ongTitleValue}</Text>
 
                 <Text style={styles.incidentProprety} >CASO:</Text>
                 <Text style={styles.incidentValue} >{incident.title}</Text>

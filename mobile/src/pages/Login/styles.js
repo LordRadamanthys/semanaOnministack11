@@ -14,7 +14,7 @@ export default StyleSheet.create({
     },
 
     loginContainer: {
-        flex: 1.5,
+        flex: 2,
         padding: 40,
         borderRadius: 8,
         backgroundColor: "#fff",
@@ -40,11 +40,12 @@ export default StyleSheet.create({
 
 
     contactBox: {
-        padding: 24,
+        padding: 19,
         borderRadius: 8,
         backgroundColor: "#fff",
         marginBottom: 16,
         elevation: 30,
+        
     },
 
     input: {
