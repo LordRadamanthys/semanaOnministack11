@@ -12,7 +12,12 @@ import { simpleAlert, actionsAlert } from '../../util/Alert'
 
 
 export default function CreateOng() {
-    const [UF, setUF] = useState('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [whatsapp, setWhatsapp] = useState('')
+    const [uf, setUF] = useState('')
+    const [city, setCity] = useState('')
+
     const [dataUF, setDataUF] = useState([])
     const [dataCity, setDataCity] = useState([])
     let estados = []
@@ -28,19 +33,25 @@ export default function CreateOng() {
         const teste = estados.data
         var i = 0
         teste.forEach(element => {
-            console.log(element.nome)
+            //console.log(element.nome)
             //arrayUF.push({ value: element.nome })
             arrayCity[i] = { value: element.nome }
             arrayUF[i] = { value: element.sigla }
-            
+
             i++
         });
-        console.log(teste)
+        // console.log(teste)
         setDataUF(arrayUF)
         setDataCity(arrayCity)
     }
-    function handlerCreateOng() {
-        console.log(UF)
+    async function handlerCreateOng() {
+        const data = { name, email, whatsapp, city, uf }
+       // console.log(data)
+        await api.post('ongs', data).then(response => {
+            console.log("FOI")
+        }).catch(error => {
+            console.log(error.message)
+        })
     }
 
     return (
@@ -58,8 +69,8 @@ export default function CreateOng() {
                 <Text style={styles.title_label} >Nome:</Text>
                 <TextInput
                     style={styles.input}
-                    // onChangeText={(ongID) => setOngID(ongID)}
-                    value={8}
+                    onChangeText={(ongName) => setName(ongName)}
+                    value={name}
 
                     placeholder="Insira o nome da ong"
                 />
@@ -67,8 +78,8 @@ export default function CreateOng() {
                 <Text style={styles.title_label} >E-mail:</Text>
                 <TextInput
                     style={styles.input}
-                    // onChangeText={(ongID) => setOngID(ongID)}
-                    value={8}
+                    onChangeText={(ongEmail) => setEmail(ongEmail)}
+                    value={email}
 
                     placeholder="Ex: ong@teste.com"
                 />
@@ -76,8 +87,8 @@ export default function CreateOng() {
                 <Text style={styles.title_label} >Whatsapp:</Text>
                 <TextInput
                     style={styles.input}
-                    // onChangeText={(ongID) => setOngID(ongID)}
-                    value={8}
+                    onChangeText={(ongWhatsapp) => setWhatsapp(ongWhatsapp)}
+                    value={whatsapp}
 
                     placeholder="(xx)XXXX-XXXXX"
                 />
@@ -85,10 +96,10 @@ export default function CreateOng() {
                 <Dropdown
                     label='Cidade'
                     data={dataCity}
-                    onChangeText={(uf) => setUF(uf)}
+                    onChangeText={(ongCity) => setCity(ongCity)}
 
                 />
-            
+
                 <Dropdown
                     label='UF'
                     data={dataUF}
@@ -99,7 +110,7 @@ export default function CreateOng() {
 
                 <View style={styles.actions}>
                     <TouchableOpacity disabled={false} style={styles.action} onPress={handlerCreateOng} >
-                        <Text style={styles.actionText}>Entrar</Text>
+                        <Text style={styles.actionText}>Cadastrar</Text>
                         <ProgressBarAndroid animating={false} styleAttr={'Small'} color="#fff" />
                     </TouchableOpacity>
                 </View>
