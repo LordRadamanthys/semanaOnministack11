@@ -12,9 +12,9 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-    errorMessage:{
-        fontSize:25,
-        alignItems:"center",
+    errorMessage: {
+        fontSize: 25,
+        alignItems: "center",
     },
 
     headerText: {
@@ -29,7 +29,7 @@ export default StyleSheet.create({
     title: {
         fontSize: 30,
         marginBottom: 16,
-        marginTop: 48,
+        marginTop: 30,
         color: "#13131a",
         fontWeight: "bold"
     },
@@ -38,7 +38,7 @@ export default StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         color: "#737380",
-        marginBottom:15
+        marginBottom: 15
     },
 
     incidentList: {
@@ -65,22 +65,28 @@ export default StyleSheet.create({
         color: "#737380"
     },
 
-    detailsButtom:{
-        flexDirection:"row",
+    detailsButtom: {
+        flexDirection: "row",
         justifyContent: "space-between",
-        alignItems:"center"
+        alignItems: "center"
     },
 
-    detailsButtonText:{
-        color:"#e02071",
-        fontSize:15,
-        fontWeight:"bold"
+    detailsButtonText: {
+        color: "#e02071",
+        fontSize: 15,
+        fontWeight: "bold"
     },
     tabBackground: {
-        backgroundColor:"#e02041"
-      },
+        backgroundColor: "#e02041"
+    },
 
-     
+    textCreatIncident:{
+        marginTop:20,
+        color: "#e02071",
+        fontSize: 15,
+        fontWeight: "bold"
+    }
 
-    
+
+
 })

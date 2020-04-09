@@ -58,7 +58,7 @@ export default function Login() {
                     onChangeText={(ongID) => setOngID(ongID)}
                     value={id}
                     
-                    placeholder="Inisra seu ID"
+                    placeholder="Insira seu ID ou E-Mail"
                 />
 
 

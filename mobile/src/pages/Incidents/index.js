@@ -155,6 +155,10 @@ export default function Incidents() {
         />
     );
 
+    function navigateToCreateIncidents(){
+        navigation.navigate('CreateIncidents', { id:ongId})
+    }
+
     return (
 
         <View style={styles.container}>
@@ -164,6 +168,11 @@ export default function Incidents() {
                     Total de <Text style={styles.headerTextBold} >{total} casos</Text>
                 </Text>
             </View>
+            <TouchableOpacity onPress={navigateToCreateIncidents} >
+                <Text style={styles.textCreatIncident}>Criar <Feather name="plus" size={17} color="#e02041" /></Text>
+            </TouchableOpacity>
+            
+
             <Text style={styles.title}>Bem-Vindo {name}</Text>
             <Text style={styles.description}>Escolha um dos casos a baixo e salve o dia</Text>
 
