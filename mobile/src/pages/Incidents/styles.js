@@ -12,6 +12,10 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center'
     },
+    errorMessage:{
+        fontSize:25,
+        alignItems:"center",
+    },
 
     headerText: {
         fontSize: 15,

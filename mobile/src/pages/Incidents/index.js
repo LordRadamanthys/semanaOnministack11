@@ -40,7 +40,7 @@ export default function Incidents() {
     }
 
     async function loadMyIncidents() {
-        
+
         setLoading(true)
 
 
@@ -66,7 +66,11 @@ export default function Incidents() {
         loadMyIncidents()
     }, [])
 
-
+    const emptyData = () => (
+        <View style={styles.container}>
+            <Text style={styles.errorMessage}>Ops, parece que você não tem nenhum caso</Text>
+        </View>
+    )
     const FirstRoute = () => (
         <FlatList
             data={myIncidents}
@@ -85,7 +89,7 @@ export default function Incidents() {
 
                     <TouchableOpacity
                         style={styles.detailsButtom}
-                        onPress={() => navigationToDetail(myincident,name)}
+                        onPress={() => navigationToDetail(myincident, name)}
                     >
                         <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
                         <Feather name="arrow-right" size={17} color="#e02041" />

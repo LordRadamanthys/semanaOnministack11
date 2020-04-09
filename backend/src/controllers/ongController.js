@@ -14,7 +14,7 @@ module.exports = {
             city,
             uf
         }).then((response)=>{
-            return res.json(response)
+            return res.json(id)
         }).catch((erro)=>{
             return res.json(erro)
         })

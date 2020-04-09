@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Link } from 'react'
-import { View, Image, Text, TouchableOpacity, TextInput, ImageBackground, ProgressBarAndroid, Dimensions } from 'react-native'
+import { View, Image, Text, TouchableOpacity, TextInput, ImageBackground, ProgressBarAndroid, Dimensions, Alert } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import styles from './styles'
 import LogoImg from '../../assets/logo.png'
@@ -46,11 +46,12 @@ export default function CreateOng() {
     }
     async function handlerCreateOng() {
         const data = { name, email, whatsapp, city, uf }
-       // console.log(data)
+        // console.log(data)
         await api.post('ongs', data).then(response => {
-            console.log("FOI")
+            // console.log(response.data)
+            simpleAlert("Seu Cadastro foi efetuado", `Seu id é: ${response.data}`)
         }).catch(error => {
-            console.log(error.message)
+            simpleAlert("Ops", error.message)
         })
     }
 

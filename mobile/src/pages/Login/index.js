@@ -16,7 +16,7 @@ export default function Login() {
     const [keyProgress, setKeyProgress] = useState(false)
 
     function createAccout() {
-        navigation.navigate('CreateAccount')
+        navigation.navigate('CreateOng')
     }
 
     async function handleLogin() {
@@ -29,7 +29,7 @@ export default function Login() {
             .then((response) => {
                 setKeyProgress(false)
 
-                navigation.navigate('Incidents', { name: response.data.name, id:id })
+                navigation.navigate('Incidents', { name: response.data.name, id:response.data.id })
             }).catch((erro) => {
                 simpleAlert('Ops!', erro.response.data.erro)
                 setKeyProgress(false)
@@ -69,7 +69,7 @@ export default function Login() {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.actions}>
-                    <TouchableOpacity onPress={createAccout} >
+                    <TouchableOpacity onPress={createAccout} disabled={keyProgress} >
                         <Text style={styles.creatText}><Feather name="user-plus" size={19} color="#e02041" /> Crie uma conta</Text>
                     </TouchableOpacity>
                 </View>

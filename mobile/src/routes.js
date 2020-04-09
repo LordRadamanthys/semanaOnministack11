@@ -14,10 +14,11 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
-                <AppStack.Screen name='CreateOng' component={CreateOng} />
+                
                 <AppStack.Screen name='Login' component={Login} />
                 <AppStack.Screen name='Incidents' component={Incident} />
                 <AppStack.Screen name='Details' component={Detail} />
+                <AppStack.Screen name='CreateOng' component={CreateOng} />
 
             </AppStack.Navigator>
         </NavigationContainer>
